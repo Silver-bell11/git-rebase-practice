@@ -51,6 +51,32 @@ app.post("/users/signup", async (req, res) => {
   );
 });
 
+app.post("/users/signin", async (req, res) => {
+  const { email, password } = req.body;
+  const user = await appDataSource.query(
+    `
+    SELECT
+      users.id
+      users.password
+    FROM
+      users
+    WHERE
+      users.email = ?
+  `,
+    [email]
+  );
+
+  if (!user) {
+    return res.json({ message: "SIGNUP_REQUIRED" });
+  }
+
+  if (!(user[0].password === password)) {
+    return res.json({ message: "INVALID_PASSWORD" });
+  }
+
+  return res.json({ userId: user.id });
+});
+
 app.listen(PORT, () => {
   appDataSource
     .initialize()
@@ -61,4 +87,6 @@ app.listen(PORT, () => {
       // initialize().then() 밑의 41번 line에 추가
       console.log("DB Connection has been failed");
     });
+
+  console.log(`Listening to request on localhost:${PORT}`);
 });

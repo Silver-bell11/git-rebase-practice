@@ -95,8 +95,8 @@
 ----------------------------------------------------------------------------------------------
 [Test 4 과제]
 
-$ git rebase [-i] : rebase 진행 시, commit 을 선택(pick) 및 squash를 할 수 있는 command
-$ git rebase --abort : rebase 진행 취소 command 
-$ git rebase --continue : conflict 의해 중단된 rebase를 다시 재개하는 command
-$ git reflog : 전체 git history를 볼 수 있는 command
+$ git rebase [-i] : rebase 진행 시, commit 을 선택(pick) 및 squash를 할 수 있는 command <br>
+$ git rebase --abort : rebase 진행 취소 command <br>
+$ git rebase --continue : conflict 의해 중단된 rebase를 다시 재개하는 command <br>
+$ git reflog : 전체 git history를 볼 수 있는 command <br>
 $ git reset : add or commit 을 취소 / --hard {원하는 시점} : 원하는 시점으로 되돌아 갈 수 있는 command
